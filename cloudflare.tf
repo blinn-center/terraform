@@ -7,6 +7,7 @@ provider "cloudflare" {
 resource "cloudflare_zone" "blinn_center" {
   account_id = "1c495e64ff5fd527342d7b7bf6731a1f"
   zone       = "blinn.center"
+  plan       = "pro"
 }
 
 resource "cloudflare_record" "spf" {
