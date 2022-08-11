@@ -1,18 +1,7 @@
-terraform {
-  required_providers {
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "~> 3.0"
-    }
-  }
-}
-
-variable "cloudflare_api_token" {
-
-}
+variable "cloudflare_api_token" {}
 
 provider "cloudflare" {
-  api_token = var.cloudflare_api_token
+  api_token = fileexists("cloudflare.key") ? file("cloudflare.key") : var.cloudflare_api_token
 }
 
 resource "cloudflare_zone" "blinn_center" {
