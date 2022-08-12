@@ -9,3 +9,11 @@ resource "github_repository" "project_rapid_class_finder" {
   has_projects  = true
   has_wiki      = true
 }
+
+resource "cloudflare_record" "project_rapid_class_finder_api" {
+  zone_id = cloudflare_zone.blinn_center.id
+  type    = "CNAME"
+  name    = "rapid-class-finder-api"
+  value   = "rapid-class-finder.fly.dev"
+  proxied = false
+}
