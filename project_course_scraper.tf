@@ -8,4 +8,10 @@ resource "github_repository" "project_course_scraper" {
   has_issues    = true
   has_projects  = true
   has_wiki      = true
+
+  pages {
+    source {
+      branch = "gh-pages"
+    }
+  }
 }
